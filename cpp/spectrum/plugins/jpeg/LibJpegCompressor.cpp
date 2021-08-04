@@ -113,6 +113,8 @@ void LibJpegCompressor::ensureReadyForWriteScanline() {
         JBOOLEAN_OPTIMIZE_SCANS,
         _options.configuration.jpeg.useOptimizeScan());
 
+    jpeg_set_colorspace(&libJpegCompressInfo,JCS_YCbCr);
+
     if (_options.configuration.jpeg.useCompatibleDcScanOpt()) {
       jpeg_c_set_int_param(&libJpegCompressInfo, JINT_DC_SCAN_OPT_MODE, 0);
     }
